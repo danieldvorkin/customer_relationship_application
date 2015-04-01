@@ -1,48 +1,5 @@
-class Contact # simulating a model
-  def initialize(first_name, last_name, email, note)
-    @first_name = first_name
-    @last_name = last_name
-    @email = email
-    @note = note
-  end
-end
-
-class Rolodex # simulating a controller
-  def initialize
-    @contact = []
-    @id = 1000
-  end
-  
-  def contact
-    @contacts
-  end
-
-  def add_contact
-    contact.id = @id
-    @contacts << contact
-    @id += 1
-  end
-
-  def modify_contact
-
-  end
-
-  def display_all_contacts
-
-  end
-
-  def display_particular_contact
-
-  end
-
-  def display_info_by_attribute
-
-  end
-
-  def delete_contact
-
-  end
-end
+require_relative "contact"
+require_relative "rolodex"
 
 class CRM # simulating a view layer
   def main_menu
@@ -83,21 +40,21 @@ class CRM # simulating a view layer
     puts "Press ENTER to continue"
   end
 
-# def modify_existing_contact
+  def modify_existing_contact
 
-# end
+  end
 
-# def delete_contact
+  def delete_contact
 
-# end
+  end
 
-# def display_all_contacts
+  def display_all_contacts
 
-# end
+  end
 
-# def display_attribute
+  def display_attribute
 
-# end
+  end
 
   def exit_program
     puts "Thank you, come again!! :)"

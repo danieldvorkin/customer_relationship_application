@@ -1,4 +1,4 @@
-class Contact
+class Contact # simulating a model
   def initialize(first_name, last_name, email, note)
     @first_name = first_name
     @last_name = last_name
@@ -7,7 +7,44 @@ class Contact
   end
 end
 
-class CRM
+class Rolodex # simulating a controller
+  def initialize
+    @contact = []
+    @id = 1000
+  end
+  
+  def contact
+    @contacts
+  end
+
+  def add_contact
+    contact.id = @id
+    @contacts << contact
+    @id += 1
+  end
+
+  def modify_contact
+
+  end
+
+  def display_all_contacts
+
+  end
+
+  def display_particular_contact
+
+  end
+
+  def display_info_by_attribute
+
+  end
+
+  def delete_contact
+
+  end
+end
+
+class CRM # simulating a view layer
   def main_menu
     print_main_menu
     user_selected = gets.to_i
@@ -43,30 +80,36 @@ class CRM
     print "Enter a note: "
     note = gets.chomp
     contact = Contact.new(first_name, last_name, email, note)
+    puts "Press ENTER to continue"
   end
 
-  def modify_existing_contact
+# def modify_existing_contact
 
-  end
+# end
 
-  def delete_contact
-  
-  end
+# def delete_contact
 
-  def display_all_contacts
+# end
 
-  end
+# def display_all_contacts
 
-  def display_attribute
-  
-  end
+# end
+
+# def display_attribute
+
+# end
 
   def exit_program
-
-  end
-end 
+    puts "Thank you, come again!! :)"
+    abort
+  end 
+end
 
 a_crm_app = CRM.new
-a_crm_app.main_menu
-input = gets.chomp
-a_crm_app.call_option(input)
+input = 1
+
+while input != 6 
+  a_crm_app.main_menu
+  input = gets.chomp
+  a_crm_app.call_option(input)
+end

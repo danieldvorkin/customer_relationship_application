@@ -41,7 +41,9 @@ class CRM # simulating a view layer
   end
 
   def modify_existing_contact
-
+    # find and return contact, bind to variable
+    # change value on bound contact
+    
   end
 
   def delete_contact

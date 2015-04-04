@@ -1,0 +1,72 @@
+# Object Oriented Programming
+
+- Procedural was the first way to work with code (programming paradigm)
+- Functional is now what is used more commonly then procedural
+- Object oriented programming uses object manipulation, they usually represent real world things
+	- Real world problem solving
+- OOP allows us to think about programs the same way we think about the problem space (domain)
+	- Functional programming is just hard to understand period 
+	- Procedural programs are hard to understand over a certain size (100,000 + loc)
+- Objects always have a name, state, and behaviour
+	- Name: something meaningful to represent the object
+	- State: what the object knows and is currently
+	- Behaviour: what the object does and can do
+
+## Classes and Objects
+- Resembles a blueprint in a way
+- Local variables exist in the local method and nowhere else
+- Instance variables exist where ever they are initialized in within the class
+- Global variable exist in everything, accessable everywhere throughout the program
+
+class Point
+	#defining both a getter and setter for both x and y rather than instantiating a reader and writer.
+	attr_accessor :x, :y
+
+	def initialize(x, y)
+		@x = x
+		@y = y
+	end
+
+	def to_s 
+		"(#{@x}, #{@y})"
+	end
+
+	def add(another_point)
+		Point.new(@x + another_point.x, @y + another_point.y)
+	end
+end
+
+class Vector < Line
+	def initialize(p1, p2, direction)
+		super
+		@direction = direction
+	end
+end
+
+class Line
+	attr_accessor :p1, :p2
+	def initialize(p1, p2)
+		@p1 = p1
+		@p2 = p2
+	end
+
+	def to_s
+		"(#{@p1} -> (#{@p2})"
+	end
+end
+
+p = Point.new(1,2)
+puts p
+p.set_x(3) #works the same as the code below, only the method name is the difference
+p.x = 3 #looks like a variable assignment, looks more familiar then other language conventions
+puts p.x
+puts p.y
+
+p1 = Point.new(3,4)
+p2 = Point.new(7,3)
+
+line = Line.new(p1, p2)
+puts line
+
+
+

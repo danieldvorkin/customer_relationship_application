@@ -1,5 +1,5 @@
 require_relative "contact"
-require_relative "rolodex"
+require_relative "roledex"
 
 class CRM < Contact# simulating a view layer
   def initialize
@@ -52,19 +52,21 @@ class CRM < Contact# simulating a view layer
   end
 
   def delete_contact
-
+    @contact.delete_at(@id)
   end
 
   def display_contacts
     print "Enter contact id: "
     contact_id = gets.chomp.to_i
     contact = @roledex.find(contact_id)
-    puts contact
-    main_menu
+    @roledex.display_all_contacts(contact)
   end
 
   def display_attribute
-
+    print "Enter contact id: "
+    contact_att = gets.chomp.to_i
+    contact = @roledex.find(contact_att)
+    @roledex.display_info_by_attribute(contact)
   end
 
   def exit_program

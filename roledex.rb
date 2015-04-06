@@ -10,7 +10,9 @@
   def add_contact(contact)
     contact.id = @id      #Assign the new contact info with a unique id to the array
     @contacts << contact  #Append the new entry to the next available position in the array
+    puts "\n"
     puts "This contact's ID: #{contact.id}"
+    puts "\n"
     @id += 1              #Increment the id counter up by 1 to keep the wheel's turnin
   end
 
@@ -25,13 +27,13 @@
 
   #Modify Contact Function
   def modify_contact(contact)
-    print "Enter the id of the user you would like to modify:"
+    print "Enter the id of the user you would like to modify: "
     puts contact.to_s
-    print "Is this the correct contact y/n?"
+    print "Is this the correct contact y/n?: "
     user_choice = gets.chomp
 
-    if user_choice == "y" or "Y"
-      puts "What would you like to change?"
+    if user_choice.upcase() == "Y"
+      puts "What would you like to change?: "
       puts "(1) First Name"
       puts "(2) Last Name"
       puts "(3) E-Mail"
@@ -51,7 +53,7 @@
         puts "Enter the NEW Notes: "
         contact.note = gets.chomp
       end
-    elsif user_choice.downcase == "n"
+    elsif user_choice.upcase() == "N"
       main_menu
     end
     puts "Press ENTER to continue...."
@@ -66,14 +68,14 @@
   #Display the specified attribute function
   def display_info_by_attribute(contact)
     puts "Enter attribute you want to display"
-    puts "[1] - first name"
-    puts "[2] - last name"
-    puts "[3] - email"
-    puts "[4] - note"
+    puts "(1) First name"
+    puts "(2) Last name"
+    puts "(3) Email"
+    puts "(4) Note"
     att = gets.chomp.to_i
-    print "Is this the correct contact y/n?"
+    print "Is this the correct contact y/n?: "
     user_choice = gets.chomp
-    if user_choice == 'y' or 'Y'
+    if user_choice.upcase() == 'Y'
       if att == 1
         puts "#{contact.id}: #{contact.first_name}"
       elsif att == 2
@@ -85,21 +87,21 @@
       else
         puts "I'm sorry but there is no such attribute"
       end
-    elsif user_choice == 'n' or 'N'
+    elsif user_choice.upcase() == 'N'
       main_menu
     end
     puts "Press ENTER to continue...."
   end
 
   def delete_contact(contact)
-    print "Is this the correct contact y/n"
+    print "Is this the correct contact y/n?: "
     user_choice = gets.chomp.to_s
-    if user_choice == 'y' or 'Y'
+    if user_choice.upcase() == 'Y'
       @contacts.delete(contact)
       @id -= 1
-      puts "The contact you have chosen has been successfully removed"
+      puts "CONTACT -> REMOVED"
       puts "Press ENTER to continue...."
-    elsif user_choice == 'n' or 'N'
+    elsif user_choice.upcase() == 'N'
       main_menu
     end
   end

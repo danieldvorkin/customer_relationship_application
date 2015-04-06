@@ -13,12 +13,12 @@ class CRM < Contact
   end
 
   def print_main_menu
-    puts "[1] Add a new contact"
-    puts "[2] Modify an existing contact"
-    puts "[3] Delete a contact"
-    puts "[4] Display all the contacts"
-    puts "[5] Display an attribute"
-    puts "[6] Exit"
+    puts "(1) Add a new contact"
+    puts "(2) Modify an existing contact"
+    puts "(3) Delete a contact"
+    puts "(4) Display a contact"
+    puts "(5) Display an attribute"
+    puts "(6) Exit"
     puts "Enter a number: "
   end
 
@@ -26,7 +26,7 @@ class CRM < Contact
     #ADD CONTACT TO SYSTEM
     add_new_contact if user_selected == 1
     #MODIFY EXISTING CONTACT IN THE SYSTEM
-    modify_existing_contact if user_selected == 2
+    modify_existing_contact if user_selected ==()
     #DELETE CONTACT IN THE SYSTEM
     delete_contact if user_selected == 3
     #DISPLAY CONTACT THAT IS STORED IN THE SYSTEM

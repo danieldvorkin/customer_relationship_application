@@ -28,12 +28,6 @@ class Roledex < Contact
     puts "Press ENTER to continue"
   end
 
-  def display_particular_contact(contact)
-    puts "#{@id}: #{@contacts}"
-    puts "Press ENTER to continue"
-
-  end
-
   def display_info_by_attribute(contact)
     puts "Enter attribute you want to display"
     puts "[1] - first name"

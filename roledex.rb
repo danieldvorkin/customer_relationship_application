@@ -86,6 +86,7 @@ class Roledex < Contact
 
   def delete_contact(contact)
     @contacts.delete(contact)
+    @id -= 1
     puts "The contact you have chosen has been successfully removed"
     puts "Press ENTER to continue...."
   end

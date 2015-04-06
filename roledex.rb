@@ -2,23 +2,27 @@ class Roledex < Contact
   attr_accessor :id, :contact
 
 	def initialize
-    @contacts = []
-    @id = 1000
+    @contacts = [] #Initialize the contacts array to nil
+    @id = 1000     #Initialize the id variable to 1000
   end
 
+  #Add Contact Function
   def add_contact(contact)
-    contact.id = @id
-    @contacts << contact
-    @id += 1
+    contact.id = @id      #Assign the new contact info with a unique id to the array
+    @contacts << contact  #Append the new entry to the next available position in the array
+    @id += 1              #Increment the id counter up by 1 to keep the wheel's turnin
   end
 
+  #Find Contact Function
   def find (contact_id)
-    contact = @contacts.find do |contacts|
+    #Within the contacts array, do a search for the specified id
+    contact = @contacts.find do |contacts| 
       contacts.id == contact_id
     end
-    return contact
+    return contact #Return the contact entry found using the specified id given by the user
   end
 
+  #Modify Contact Function
   def modify_contact(contact)
     puts "Enter the id of the user you would like to modify:"
     puts contact.to_s
@@ -52,11 +56,13 @@ class Roledex < Contact
     puts "Press ENTER to continue...."
   end
 
+  #Display Contact Function
   def display_all_contacts(contact)
     puts "#{@id}: #{contact.first_name}, #{contact.last_name}, #{contact.email}, #{contact.note}"
     puts "Press ENTER to continue...."
   end
 
+  #Display the specified attribute function
   def display_info_by_attribute(contact)
     puts "Enter attribute you want to display"
     puts "[1] - first name"

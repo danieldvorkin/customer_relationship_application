@@ -54,7 +54,7 @@ class CRM < Contact
   end
 
   def modify_existing_contact
-    puts "Enter id of user you would like to edit: "
+    print "Enter id of user you would like to edit: "
     id = gets.chomp.to_i #Input Retrieval
     #Pass the id from the user input to roledex's FIND function to locate that specific entry
     contact = @roledex.find(id)
@@ -63,7 +63,7 @@ class CRM < Contact
   end
 
   def delete_contact
-    puts "Enter the id of the contact you would like to remove: "
+    print "Enter the id of the contact you would like to remove: "
     contact_id = gets.chomp.to_i #Input Retrieval
     #Pass in the id to roledex's FIND function and assign the return value -> 'to_be_removed'
     to_be_removed = @roledex.find(contact_id)

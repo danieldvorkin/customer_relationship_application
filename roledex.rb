@@ -1,4 +1,4 @@
-class Roledex < Contact
+  class Roledex < Contact
   attr_accessor :id, :contact
 
 	def initialize
@@ -10,6 +10,7 @@ class Roledex < Contact
   def add_contact(contact)
     contact.id = @id      #Assign the new contact info with a unique id to the array
     @contacts << contact  #Append the new entry to the next available position in the array
+    puts "This contact's ID: #{contact.id}"
     @id += 1              #Increment the id counter up by 1 to keep the wheel's turnin
   end
 
@@ -38,16 +39,16 @@ class Roledex < Contact
       print "Enter your selection: "
       user_option = gets.chomp.to_i
       if user_option == 1
-        puts "Enter the first name: "
+        puts "Enter the NEW first name: "
         contact.first_name = gets.chomp
       elsif user_option == 2
-        puts "Enter the last name: "
+        puts "Enter the NEW last name: "
         contact.last_name = gets.chomp
       elsif user_option == 3
-        puts "Enter the E-Mail: "
+        puts "Enter the NEW E-Mail: "
         contact.email = gets.chomp
       elsif user_option == 4
-        puts "Enter the Notes: "
+        puts "Enter the NEW Notes: "
         contact.note = gets.chomp
       end
     elsif user_choice.downcase == "n"

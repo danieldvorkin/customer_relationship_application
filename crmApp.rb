@@ -51,11 +51,14 @@ class CRM < Contact# simulating a view layer
     puts "Enter id of user you would like to edit: "
     id = gets.chomp.to_i
     contact = @roledex.find(id)
-    
+    @roledex.modify_contact(contact)
   end
 
   def delete_contact
-    @contact.delete_at(@id)
+    puts "Enter the id of the contact you would like to remove: "
+    contact_id = gets.chomp.to_i
+    to_be_removed = @roledex.find(contact_id)
+    @roledex.delete_contact(to_be_removed)
   end
 
   def display_contacts

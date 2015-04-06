@@ -1,7 +1,11 @@
 require_relative "contact"
 require_relative "rolodex"
 
-class CRM # simulating a view layer
+class CRM < Contact# simulating a view layer
+  def initialize
+    @roledex = Roledex.new
+  end
+
   def main_menu
     print_main_menu
     user_selected = gets.to_i
@@ -22,7 +26,7 @@ class CRM # simulating a view layer
     add_new_contact if user_selected == 1
     modify_existing_contact if user_selected == 2
     delete_contact if user_selected == 3
-    display_all_contacts if user_selected == 4
+    display_contacts if user_selected == 4
     display_attribute if user_selected == 5
     exit_program if user_selected == 6
   end
@@ -36,22 +40,27 @@ class CRM # simulating a view layer
     email = gets.chomp
     print "Enter a note: "
     note = gets.chomp
+
     contact = Contact.new(first_name, last_name, email, note)
+    @roledex.add_contact(contact)
+    
     puts "Press ENTER to continue"
   end
 
   def modify_existing_contact
-    # find and return contact, bind to variable
-    # change value on bound contact
-    
+
   end
 
   def delete_contact
 
   end
 
-  def display_all_contacts
-
+  def display_contacts
+    print "Enter contact id: "
+    contact_id = gets.chomp.to_i
+    contact = @roledex.find(contact_id)
+    puts contact
+    main_menu
   end
 
   def display_attribute
@@ -70,5 +79,5 @@ input = 1
 while input != 6 
   a_crm_app.main_menu
   input = gets.chomp
-  a_crm_app.call_option(input)
+  a_crm_app.call_option(input.to_i)
 end

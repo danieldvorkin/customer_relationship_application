@@ -9,9 +9,10 @@ class Contact
   end
 
   def to_s
-  	print "First Name: #{first_name}"
-  	print "Last Name: #{last_name}"
-  	print "Email: #{email}"
-  	print "Notes: #{note}"
+  	puts "First Name: #{@first_name}"
+  	puts "Last Name: #{@last_name}"
+  	puts "Email: #{@email}"
+  	puts "Notes: #{@note}"
+  	puts "\n"
   end
 end

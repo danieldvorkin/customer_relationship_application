@@ -13,9 +13,10 @@ class Roledex < Contact
   end
 
   def find (contact_id)
-    @contacts.find do |contacts|
+    contact = @contacts.find do |contacts|
       contacts.id == contact_id
     end
+    return contact
   end
 
   def modify_contact
@@ -23,15 +24,17 @@ class Roledex < Contact
   end
 
   def display_all_contacts(contact)
-  	puts "#{@id}: #{@contacts}"
+    puts "#{@id}: #{contact.first_name}, #{contact.last_name}, #{contact.email}, #{contact.note}"
     puts "Press ENTER to continue"
   end
 
-  def display_particular_contact
+  def display_particular_contact(contact)
+    puts "#{@id}: #{@contacts}"
+    puts "Press ENTER to continue"
 
   end
 
-  def display_info_by_attribute(contact_id)
+  def display_info_by_attribute(contact)
     puts "Enter attribute you want to display"
     puts "[1] - first name"
     puts "[2] - last name"
@@ -39,13 +42,13 @@ class Roledex < Contact
     puts "[4] - note"
     att = gets.chomp.to_i
     if att == 1
-      puts "#{@id}: #{@first_name}"
+      puts "#{@id}: #{contact.first_name}"
     elsif att == 2
-      puts "#{@id}: #{@last_name}"
+      puts "#{@id}: #{contact.last_name}"
     elsif att == 3
-      puts "#{@id}: #{@email}"
+      puts "#{@id}: #{contact.email}"
     elsif att == 4
-      puts "#{@id}: #{@note}"
+      puts "#{@id}: #{contact.note}"
     else
       puts "I'm sorry but there is no such attribute"
     end
@@ -56,6 +59,6 @@ class Roledex < Contact
     puts "Enter the id of the contact you would like to remove: "
     contact = gets.chomp.to_s
     tobe_gone_contact = find(contact)
-
+    contact.delete_at(tobo_gone_ contact)
   end
 end
